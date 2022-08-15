@@ -10,11 +10,7 @@ export default function NavHeaderComponent() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link
-          className={styles.logo}
-          to="/"
-          aria-label="Mercado Libre - Inicio"
-        >
+        <Link className={styles.logo} to="/" title="Mercado Libre - Inicio">
           <img
             src={logoML}
             srcSet={`${logoML2x} 2x`}

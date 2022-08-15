@@ -1,12 +1,16 @@
-import { Link, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import "./index.css";
+
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import Products from "./pages/products";
 
 export function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path="/items" element={<Products />} />
+        </Route>
       </Routes>
     </>
   );
