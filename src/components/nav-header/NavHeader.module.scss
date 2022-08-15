@@ -1,0 +1,68 @@
+@import "@/styles";
+
+.header {
+  background-color: $primary;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(54px, auto);
+  grid-gap: 10px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.logo {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  width: 53px;
+  align-self: center;
+  &:focus {
+    @include accesibleFocus();
+  }
+}
+
+.search {
+  position: relative;
+  display: flex;
+  grid-column: 3 / 12;
+  grid-row: 1;
+  align-self: center;
+  background-color: #eeeeee;
+  &:focus {
+    @include accesibleFocus();
+  }
+  input {
+    height: 33px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 3px;
+    padding: 0.25rem 2rem;
+    border: $search-border;
+    box-sizing: inherit;
+    font-size: 1.8rem;
+    &:focus {
+      @include accesibleFocus();
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: none;
+  background: $grey-400;
+  width: 4rem;
+  height: 4rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+  &:focus {
+    @include accesibleFocus();
+  }
+}
