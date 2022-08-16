@@ -14,8 +14,11 @@ export default function NavHeaderComponent() {
 
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
-    const search = inputSearchRef.current?.value;
-    navigate({ pathname: "/items", search: `?search=${search}` });
+    const search = inputSearchRef.current?.value || "";
+    navigate({
+      pathname: "/items",
+      search: `?search=${search}`,
+    });
   };
 
   return (

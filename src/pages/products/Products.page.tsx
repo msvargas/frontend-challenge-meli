@@ -1,9 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 
-import styles from "./Products.module.scss";
 import { useFetch } from "@/hooks";
 import Breadcrumbs from "@/components/breadcrumbs";
+import shippingImg from "@/assets/ic_shipping.png";
+import shippingImg2x from "@/assets/ic_shipping@2x.png";
+
 import type { IProducts } from "@/interfaces/products";
+import styles from "./Products.module.scss";
 
 export default function ProductsPage() {
   const [searchParams] = useSearchParams();
@@ -22,11 +25,31 @@ export default function ProductsPage() {
       <div className={styles.products}>
         {products.map((product) => (
           <div key={product.id} className={styles.productItem}>
-            <img
-              className={styles.picture}
-              src={product.picture}
-              alt={product.title}
-            />
+            <div className={styles.productDetails}>
+              <img
+                className={styles.picture}
+                src={product.picture}
+                alt={product.title}
+              />
+              <div>
+                <p className={styles.price}>
+                  {product.price.amount.toLocaleString("es-AR", {
+                    style: "currency",
+                    currency: product.price.currency,
+                    minimumFractionDigits: product.price.decimals,
+                  })}
+                  {product.free_shipping && (
+                    <img
+                      className={styles.freeShipping}
+                      src={shippingImg}
+                      srcSet={`${shippingImg2x} 2x`}
+                    />
+                  )}
+                </p>
+                <p className={styles.title}>{product.title}</p>
+              </div>
+            </div>
+            <p className={styles.city}>{product.address.city_name}</p>
           </div>
         ))}
       </div>

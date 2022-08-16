@@ -11,5 +11,8 @@ export interface IProducts {
     picture: string;
     condition: string;
     free_shipping: boolean;
+    address: {
+      city_name: string;
+    };
   }>;
 }

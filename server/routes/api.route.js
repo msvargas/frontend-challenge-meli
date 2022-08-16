@@ -33,6 +33,7 @@ router.get("/items", async (req, res) => {
           picture: item.thumbnail,
           condition: item.condition,
           free_shipping: !!item.shipping?.free_shipping,
+          address: item.address,
         };
       });
       const payload = {
