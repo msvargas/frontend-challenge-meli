@@ -6,10 +6,11 @@ const router = Router();
 
 router.use(authorMiddleware);
 
-router.get("/items", async (req, res, next) => {
-  if (req.query.q) {
+router.get("/items", async (req, res) => {
+  const searchQuery = req.query.q;
+  if (searchQuery) {
     const { success, response, error } = await API.fetchProductsByQuery(
-      req.query.q
+      searchQuery
     );
     if (success) {
       const categories = (
@@ -63,26 +64,14 @@ router.get("/items/:id", async (req, res) => {
   }
   const product = results[0].response;
   const description = results[1].response;
-
-  const resultCategories = await API.fetchProductCategoryById(
-    product.category_id
-  );
-  if (!resultCategories.success) {
-    res.status(500).json({
-      message: "Internal Server Error",
-      errors: resultCategories.error,
-    });
-    return;
-  }
-  const categories = (resultCategories.response?.path_from_root || []).map(
-    (item) => item.name
-  );
-  const itemCondition = product.attributes.find(
+  const condition = product.attributes.find(
     (item) => item.id === "ITEM_CONDITION"
   );
+
   res.json({
     item: {
       id: productId,
+      category_id: product.category_id,
       title: product.title,
       price: {
         currency: product.currency_id,
@@ -90,12 +79,32 @@ router.get("/items/:id", async (req, res) => {
         decimals: 2,
       },
       picture: product.pictures?.slice(-1)[0]?.secure_url,
-      condition: itemCondition?.value_name,
+      condition: condition?.value_name,
       free_shipping: !!product.shipping?.free_shipping,
       sold_quantity: product.sold_quantity,
       description: description.plain_text,
-      categories,
     },
+  });
+});
+
+router.get("/categories/:id", async (req, res) => {
+  const categoryId = req.params.id;
+  const { success, response, error } = await API.fetchProductCategoryById(
+    categoryId
+  );
+
+  if (!success) {
+    res.status(500).json({
+      message: "Internal Server Error",
+      error,
+    });
+    return;
+  }
+
+  const categories = (response?.path_from_root || []).map((item) => item.name);
+
+  res.json({
+    categories,
   });
 });
 

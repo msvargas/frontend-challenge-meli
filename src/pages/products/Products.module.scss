@@ -1,0 +1,62 @@
+@import "@/styles";
+
+.container {
+  @include gridContainer();
+}
+
+.breadcrumbs {
+  grid-column: 2 / 13;
+  grid-row: 1;
+}
+
+.loading {
+  grid-column: 2 / 13;
+  align-self: center;
+  justify-self: center;
+}
+
+.error {
+  grid-column: 2 / 13;
+  align-self: center;
+  justify-self: center;
+  color: $red-500;
+}
+
+.products {
+  grid-column: 2 / 13;
+}
+
+.productItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: $white;
+
+  &:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+  &:not(:last-child) {
+    &::after {
+      content: "";
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      height: 1px;
+      width: 90%;
+      border-bottom: 1px solid $grey-400;
+    }
+  }
+}
+
+.picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+}

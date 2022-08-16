@@ -5,12 +5,7 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(54px, auto);
-  grid-gap: 10px;
-  margin: 0 auto;
-  max-width: 1200px;
+  @include gridContainer();
 }
 
 .logo {
@@ -29,7 +24,7 @@
   grid-column: 3 / 12;
   grid-row: 1;
   align-self: center;
-  background-color: #eeeeee;
+  background-color: $grey-400;
   &:focus {
     @include accesibleFocus();
   }
@@ -38,6 +33,7 @@
     width: 100%;
     font-size: 1rem;
     border-radius: 3px;
+    color: $grey-900;
     padding: 0.25rem 1rem;
     border: $search-border;
     box-sizing: inherit;

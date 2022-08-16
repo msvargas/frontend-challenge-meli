@@ -1,14 +1,17 @@
-$base-font-size: 18px;
-$white: #fff;
 $primary: #ffe600;
+$grey-900: #333333;
 $grey-600: #2b2424;
 $grey-500: #999999;
 $grey-400: #eeeeee;
+$red-500: tomato;
 $blue-500: #3483fa;
+$base-font-size: 18px;
+$white: #fff;
+
 $search-border: 0 rgba(0, 0, 0, 0.2);
+
 $grid-split: 13;
 $grid-coverage: 11;
 
-// accessibility
 $outline-focused: 3px solid $blue-500;
 $outline-button-focused: 3px solid black;
