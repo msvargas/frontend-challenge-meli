@@ -1,0 +1,103 @@
+@import "@/styles";
+
+.container {
+  @include gridContainer();
+}
+
+.breadcrumbs {
+  grid-column: 2 / 12;
+  grid-row: 1;
+}
+
+.loading {
+  grid-column: 2 / 12;
+  align-self: center;
+  justify-self: center;
+}
+
+.error {
+  grid-column: 2 / 12;
+  align-self: center;
+  justify-self: center;
+  color: $red-500;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.details {
+  grid-column: 2 / 12;
+  margin: 0px 0px 6rem 0px;
+  padding: 3.2rem;
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.purchase {
+  max-width: 30%;
+}
+
+.picture {
+  width: 68rem;
+  padding-right: 2rem;
+}
+
+.price {
+  font-size: 2.4rem;
+  color: $grey-600;
+  margin: 3.2rem 0;
+  padding: 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: $grey-600;
+  margin: 0;
+  padding: 0;
+}
+
+.condition {
+  font-size: 1.4rem;
+  color: $grey-600;
+  margin: 0 0 1.6rem 0;
+  padding: 0;
+}
+
+.button {
+  width: 100%;
+  height: 4rem;
+  border-radius: 3px;
+  background-color: $blue-500;
+  color: $white;
+  font-size: 1.6rem;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.description {
+  max-width: 70%;
+}
+
+.descriptionLabel {
+  font-size: 2.8rem;
+  color: $grey-600;
+  margin: 5rem 0 3.2rem 0;
+  padding: 0;
+}
+
+.descriptionBody {
+  font-size: 1.6rem;
+  color: $grey-500;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+}

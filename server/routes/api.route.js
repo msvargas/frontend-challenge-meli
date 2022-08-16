@@ -79,7 +79,7 @@ router.get("/items/:id", async (req, res) => {
         amount: product.price,
         decimals: 2,
       },
-      picture: product.pictures?.slice(-1)[0]?.secure_url,
+      picture: product.pictures?.[0]?.secure_url,
       condition: condition?.value_name,
       free_shipping: !!product.shipping?.free_shipping,
       sold_quantity: product.sold_quantity,

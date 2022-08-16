@@ -7,9 +7,11 @@ class API {
 
   static fetchProductsByQuery = async (query) => {
     try {
-      const { data: response } = await this.client.get(
-        `sites/MLA/search?q=${query}`
-      );
+      const { data: response } = await this.client.get("sites/MLA/search", {
+        params: {
+          q: query,
+        },
+      });
       return { success: true, response };
     } catch (error) {
       console.error(error);

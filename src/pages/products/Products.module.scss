@@ -10,13 +10,13 @@
 }
 
 .loading {
-  grid-column: 2 / 13;
+  grid-column: 2 / 12;
   align-self: center;
   justify-self: center;
 }
 
 .error {
-  grid-column: 2 / 13;
+  grid-column: 2 / 12;
   align-self: center;
   justify-self: center;
   color: $red-500;
@@ -59,10 +59,10 @@
 }
 
 .picture {
-  width: 180px;
-  height: 180px;
-  border-radius: 4px;
-  margin: 0px 16px 0px 0px;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 0.4rem;
+  margin: 0px 1.6rem 0px 0px;
 }
 
 .productDetails {
@@ -72,13 +72,15 @@
 .price {
   font-size: 2.4rem;
   color: $grey-600;
-  margin: 32px 0;
+  margin: 3.2rem 0;
+  padding: 0;
 }
 
 .title {
   font-size: 1.8rem;
   color: $grey-600;
   margin: 0;
+  padding: 0;
 }
 
 .freeShipping {
@@ -92,4 +94,6 @@
   color: $grey-500;
   margin: 5rem 10% 0 0;
   align-self: flex-start;
+  text-align: right;
+  text-transform: capitalize;
 }

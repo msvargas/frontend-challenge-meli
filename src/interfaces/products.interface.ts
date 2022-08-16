@@ -13,6 +13,6 @@ export interface IProducts {
     free_shipping: boolean;
     address: {
       city_name: string;
-    };
+    } | null;
   }>;
 }

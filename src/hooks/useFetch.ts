@@ -1,9 +1,9 @@
-import useSWR from "swr";
+import useSWR, { Key } from "swr";
 
 const fetcher = (...args: Parameters<typeof fetch>) =>
   fetch(...args).then((res) => res.json());
 
-const useFetch = <TResponse = any, TError = any>(url: string) => {
+const useFetch = <TResponse = any, TError = any>(url: Key) => {
   const { data, error } = useSWR<TResponse, TError>(url, fetcher);
   return {
     data,
